@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="b_margin_top">20dp</dimen>
-    <dimen name="b_margin_top">20dp</dimen>
+    <dimen name="margin_top_of_button">20dp</dimen>
 </resources>

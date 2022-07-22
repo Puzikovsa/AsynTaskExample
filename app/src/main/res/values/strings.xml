@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AsynTaskExample</string>
+    <string name="b_go_asynctaskexample">go AsyncTaskExample</string>
 </resources>
