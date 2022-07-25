@@ -1,8 +1,9 @@
 package ru.synergy.asyntaskexample;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.os.AsyncTask;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class AsyncTaskExample extends AppCompatActivity {
 
@@ -10,5 +11,38 @@ public class AsyncTaskExample extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_asynk_task_example);
+
+        MyAsyncTask asyncTask = new MyAsyncTask();
+        asyncTask.execute("Hello, World");
+    }
+}
+
+class MyAsyncTask extends AsyncTask<String, Integer, Integer>{
+
+    @Override
+    protected Integer doInBackground(String... strings) {
+        int myProgress = 0;
+        publishProgress(myProgress);
+        int result = myProgress++;
+        return result;
+    }
+    @Override
+    protected void onProgressUpdate(Integer... values){
+        super.onProgressUpdate(values);
+    }
+
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+    }
+
+    @Override
+    protected void onPostExecute(Integer integer) {
+        super.onPostExecute(integer);
+    }
+
+    @Override
+    protected void onCancelled() {
+        super.onCancelled();
     }
 }
