@@ -50,8 +50,9 @@ public class AsyncTaskExample extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids) {
             try {
+                int numberOfFloors = 14;
                 int counter = 0;
-                for (int i = 0; i < 14; i++){
+                for (int i = 0; i < numberOfFloors; i++){
                     getFlor (counter);
                     publishProgress(++counter);
                 }
