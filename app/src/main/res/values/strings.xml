@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">AsynTaskExample</string>
     <string name="b_go_asynctaskexample">go AsyncTaskExample</string>
+    <string name="b_start">ЗАПУСКАЕМ</string>
+    <string name="text_info_hint">Здесь будет текст</string>
 </resources>
