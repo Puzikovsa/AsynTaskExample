@@ -2,4 +2,5 @@
     <string name="app_name">AsynTaskExample</string>
     <string name="b_go_asyncTaskExample">go AsyncTaskExample</string>
     <string name="b_start">ЗАПУСКАЕМ</string>
+    <string name="b_go_threadExample">go to tread</string>
 </resources>
