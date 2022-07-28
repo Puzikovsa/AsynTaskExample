@@ -1,13 +1,24 @@
 package ru.synergy.asyntaskexample;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.TextView;
 
 public class ThreadExample extends AppCompatActivity {
     int mCounter = 1;
+
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            TextView mInfoTextView = findViewById(R.id.textViewInfo);
+            mInfoTextView.setText("Сегодня ворон было " + mCounter++ + " штук");
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,14 +26,14 @@ public class ThreadExample extends AppCompatActivity {
         setContentView(R.layout.activity_thread_example);
     }
 
-    public void onClick(View view){
+    public void onClick(View view) {
 
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
                 long endTime = System.currentTimeMillis() + 20 * 100;
-                while (System.currentTimeMillis() < endTime){
-                    synchronized (this){
+                while (System.currentTimeMillis() < endTime) {
+                    synchronized (this) {
                         try {
                             wait(endTime - System.currentTimeMillis());
                         } catch (InterruptedException e) {
@@ -30,8 +41,7 @@ public class ThreadExample extends AppCompatActivity {
                         }
                     }
                 }
-                TextView mInfoTextView = findViewById(R.id.textViewInfo);
-                mInfoTextView.setText("Сегодня ворон было " + mCounter++ + " штук");
+                handler.sendEmptyMessage(0);
             }
         };
 
