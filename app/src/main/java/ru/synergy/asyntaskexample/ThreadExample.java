@@ -9,8 +9,10 @@ import android.os.Message;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class ThreadExample extends AppCompatActivity {
     int mCounter = 1;
@@ -31,7 +33,7 @@ public class ThreadExample extends AppCompatActivity {
         setContentView(R.layout.activity_thread_example);
     }
 
-    public void onClick(View view) {
+    public void onClick(View view) throws ExecutionException, InterruptedException {
 
         Runnable runnable = new Runnable() {
             @Override
@@ -50,7 +52,8 @@ public class ThreadExample extends AppCompatActivity {
             }
         };
 
-        service.execute(runnable);
+        Future future = service.submit(runnable);
+        future.get();
 
 
     }
