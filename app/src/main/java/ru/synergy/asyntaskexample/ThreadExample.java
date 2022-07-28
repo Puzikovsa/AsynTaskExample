@@ -53,7 +53,7 @@ public class ThreadExample extends AppCompatActivity {
         };
 
         Future future = service.submit(runnable);
-        future.get();
+
 
 
     }
