@@ -9,8 +9,13 @@ import android.os.Message;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class ThreadExample extends AppCompatActivity {
     int mCounter = 1;
+
+    ExecutorService service = Executors.newFixedThreadPool(3);
 
     Handler handler = new Handler() {
         @Override
@@ -45,7 +50,8 @@ public class ThreadExample extends AppCompatActivity {
             }
         };
 
-        Thread thread = new Thread(runnable);
-        thread.start();
+        service.execute(runnable);
+
+
     }
 }
