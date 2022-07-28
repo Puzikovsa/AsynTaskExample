@@ -3,4 +3,6 @@
     <string name="b_go_asyncTaskExample">go AsyncTaskExample</string>
     <string name="b_start">ЗАПУСКАЕМ</string>
     <string name="b_go_threadExample">go to tread</string>
+    <string name="tv_thread_hint">Здесь будет результат подсчета ворон</string>
+    <string name="b_thread_start">Считать ворон</string>
 </resources>
